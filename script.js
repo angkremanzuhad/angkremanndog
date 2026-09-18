@@ -1,16 +1,11 @@
-document.querySelectorAll('nav ul li a').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
-        });
-    });
+// Mengubah bayangan header saat halaman di-scroll
+window.addEventListener('scroll', function() {
+    const header = document.querySelector('header');
+    if (window.scrollY > 50) {
+        // Menambahkan bayangan yang lebih tebal saat di-scroll
+        header.style.boxShadow = '0 4px 20px rgba(0,0,0,0.3)';
+    } else {
+        // Kembali ke bayangan awal saat di posisi paling atas
+        header.style.boxShadow = '0 4px 10px rgba(0,0,0,0.1)';
+    }
 });
-
-// Contoh sederhana untuk kontak form (perlu backend untuk berfungsi penuh)
-// document.querySelector('.contact-form form').addEventListener('submit', function(e) {
-//     e.preventDefault();
-//     alert('Terima kasih! Pesan Anda telah terkirim. Kami akan segera menghubungi Anda.');
-//     this.reset(); // Mengosongkan form setelah submit
-// });
